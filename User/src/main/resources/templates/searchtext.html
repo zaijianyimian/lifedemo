@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活动详情</title>
+    <link th:href="@{/bootstrap-5.3.0-dist/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/fontawesome-free-6.7.2-web/css/all.min.css}" rel="stylesheet">
+    <link th:href="@{/css/searchtext.css}" rel="stylesheet">
+    <link rel="icon" th:href="@{/favicon.svg}" type="image/svg+xml">
+</head>
+<body>
+
+<nav class="navbar navbar-custom navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img th:src="@{/images/img.png}" class="logo"></a>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/index}"><i class="fa-solid fa-house"></i>首页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/login}"><i class="fa fa-sign-in-alt"></i> 登录</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/manage}"><i class="fa fa-cogs"></i> 管理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="showimage"><i class="fa fa-headset"></i>客服</a>
+                <img th:src="@{/images/customer-ser.jpg}" class="service-img" alt="客服图片" />
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h2>活动详情</h2>
+    <br>
+    <br>
+    <div id="activity-list" class="alert alert-warning text-center mt-5 mb-3" role="alert">
+        <h4>没有找到活动</h4>
+        <p>我们无法找到您查询的活动，您可以尝试更改搜索条件或稍后再试。</p>
+    </div>
+</div>
+
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="participantsModal" tabindex="-1" aria-labelledby="participantsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="participantsModalLabel">活动参与者</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul id="modal-participants-list"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="query" th:value="${query}">
+<script th:src="@{/jquery/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/bootstrap-5.3.0-dist/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/searchtext.js}"></script>
+</body>
+</html>

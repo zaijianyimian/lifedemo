@@ -1,0 +1,100 @@
+body{
+    background-color: #E9F7FF;
+}
+/*导航栏*/
+.navbar-custom {
+    background-color: orange;
+    padding: 10px 20px;
+}
+/*导航栏链接*/
+.navbar-custom .nav-link {
+    color: white;
+}
+/*导航栏链接悬停*/
+.navbar-custom .nav-link:hover {
+    color: lightgrey;
+}
+
+/* Font Awesome 图标 */
+.search-box .fa-search {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px; /* 图标大小 */
+    color: #aaa; /* 图标颜色 */
+}
+
+
+/*校徽*/
+.logo {
+    height: 50px;
+    margin: 0 0;
+}
+/* 默认隐藏客服图片 */
+.service-img {
+    display: none;
+    width: 100px;
+    height: auto;
+    position: absolute;
+    z-index: 9999;
+}
+
+/* 当鼠标悬停在客服链接上时，显示紧随其后的图片 */
+#showimage:hover + .service-img {
+    display: block;
+    position: absolute; /* 可选：使图片不占用文档流空间 */
+    right: 0; /* 可选：调整图片位置 */
+}
+.activity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.activity-item h5 {
+    margin: 0;
+}
+
+.activity-item p {
+    margin: 0;
+    flex-grow: 1;
+    padding-right: 10px;
+}
+
+.activity-item button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.activity-item button:hover {
+    background-color: #003f7f;
+}
+
+.participants {
+    display: none;
+    margin-top: 10px;
+}
+
+.participants ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.participants li {
+    margin: 5px 0;
+}
+a{
+    color: black;
+    height: 50px;
+    text-decoration: none;
+}

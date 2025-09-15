@@ -1,0 +1,85 @@
+/*导航栏*/
+.navbar-custom {
+    background-color: orange;
+    padding: 10px 20px;
+}
+/*导航栏链接*/
+.navbar-custom .nav-link {
+    color: white;
+}
+/*导航栏链接悬停*/
+.navbar-custom .nav-link:hover {
+    color: lightgrey;
+}
+
+
+/*校徽*/
+.logo {
+    height: 50px;
+    margin: 0 0;
+}
+/* 默认隐藏客服图片 */
+.service-img {
+    display: none;
+    width: 100px;
+    height: auto;
+    position: absolute;
+    z-index: 9999;
+}
+
+/* 当鼠标悬停在客服链接上时，显示紧随其后的图片 */
+#showimage:hover + .service-img {
+    display: block;
+    position: absolute; /* 可选：使图片不占用文档流空间 */
+    right: 0; /* 可选：调整图片位置 */
+}
+.activity-details {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+.activity-details h2 {
+    margin-bottom: 20px;
+}
+.activity-details p {
+    margin-bottom: 15px;
+}
+.activity-details .btn {
+    margin-top: 20px;
+}
+.activity-details hr {
+    margin-top: 20px;
+}
+.share-btn {
+    margin-left: 10px;
+}
+/* Share button style */
+.share-btn {
+    margin-left: 10px;
+}
+/* + button style */
+.add-comment-btn {
+    border-radius: 20%;
+    position: fixed;
+    bottom: 105px;
+    right: 20px;
+    background-color: white;
+    color: white;
+    border: 1px;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.add-comment-btn:hover {
+    background-color: #0056b3;
+}
+.fa{
+    color: lightgrey;
+}
+.report-btn {
+    margin-left: 10px;
+    background-color: #dc3545;
+}

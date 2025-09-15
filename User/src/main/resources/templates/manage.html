@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户设置</title>
+    <link th:href="@{/bootstrap-5.3.0-dist/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/fontawesome-free-6.7.2-web/css/all.min.css}" rel="stylesheet">
+    <link th:href="@{/css/manage.css}" rel="stylesheet">
+    <link rel="icon" th:href="@{/favicon.svg}" type="image/svg+xml">
+</head>
+<body>
+
+<nav class="navbar navbar-custom navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="localhost:8001/index.html"><img th:src="@{/images/img.png}" class="logo"></a>
+
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/index}"><i class="fa-solid fa-house"></i>首页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/login}"><i class="fa fa-sign-in-alt"></i> 登录</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/manage}"><i class="fa fa-cogs"></i> 管理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="showimage"><i class="fa fa-headset"></i>客服</a>
+                <img th:src="@{/images/customer-ser.jpg}" class="service-img" alt="客服图片" />
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            用户设置
+        </div>
+        <div class="card-body">
+            <!-- 显示用户名 -->
+            <div class="mb-3">
+                <label for="username" class="form-label">用户名</label>
+                <input type="text" class="form-control" id="username" name="username" disabled>
+            </div>
+
+            <!-- 隐藏字段存储用户id -->
+            <input type="hidden" id="userId" name="userId"> <!-- 隐藏字段存储用户id -->
+
+            <!-- 显示密码（不可见，存储原始密码在隐藏字段）-->
+            <input type="hidden" id="currentPassword" name="currentPassword"> <!-- 隐藏字段存储原始密码 -->
+
+            <!-- 修改密码按钮 -->
+            <button class="btn btn-primary" id="changePasswordBtn">修改密码</button>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-header">
+            参与的活动
+        </div>
+        <div class="card-body" id="activityList">
+            <!-- 用户参与的活动将显示在这里 -->
+        </div>
+    </div>
+
+    <!-- 发布活动管理 -->
+    <div class="card mt-4">
+        <div class="card-header">
+            发布的活动管理
+        </div>
+        <div class="card-body" id="publishedActivityList">
+            <!-- 发布的活动将显示在这里 -->
+        </div>
+    </div>
+</div>
+
+<!-- 修改密码弹窗 -->
+<div class="modal" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="changePasswordModalLabel">修改密码</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="changePasswordForm">
+                    <div class="mb-3">
+                        <label for="newPassword" class="form-label">新密码</label>
+                        <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">确认新密码</label>
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                    </div>
+                    <div id="errorMessage" class="alert alert-danger d-none">密码和确认密码不一致</div>
+                    <button type="submit" class="btn btn-primary">提交</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 引入 Bootstrap JS 和 Popper.js -->
+
+<!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>-->
+<script th:src="@{/bootstrap-5.3.0-dist/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/jquery/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/js/manage.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>举报管理</title>
+
+    <!-- 引入 Bootstrap 和 Font Awesome -->
+    <link th:href="@{/bootstrap-5.3.0-dist/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/fontawesome-free-6.7.2-web/css/all.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/reportsolve.css}" rel="stylesheet" />
+    <link rel="icon" th:href="@{/favicon.svg}" type="image/svg+xml">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+    <div class="container-fluid">
+        <img th:src="@{images/img.png}" class="logo">
+        <a class="navbar-brand" href="#">微生活服务平台</a>
+        <div class="d-flex justify-content-end">
+            <a class="btn btn-link" th:href="@{/activitymanagement}"><i class="fa-solid fa-calendar-day"></i>活动管理</a>
+            <a class="btn btn-link ms-3" th:href="@{/usermanagement}"><i class="fa-solid fa-user"></i>用户管理</a>
+            <a class="btn btn-link ms-3" th:href="@{/reportsolve}"><i class="fa-solid fa-flag"></i>举报信息管理</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h2 class="text-center mb-4">举报管理</h2>
+    <table id="reportsTable" class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>举报ID</th>
+            <th>用户ID</th>
+            <th>活动ID</th>
+            <th>举报描述</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- 数据行将在这里动态加载 -->
+        </tbody>
+    </table>
+</div>
+
+<script th:src="@{/jquery/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/bootstrap-5.3.0-dist/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/reportsolve.js}"></script>
+
+</body>
+</html>

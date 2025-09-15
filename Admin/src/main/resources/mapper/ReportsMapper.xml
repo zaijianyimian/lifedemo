@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.admin.mapper.ReportsMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.admin.domain.Reports">
+            <id property="id" column="id" />
+            <result property="userId" column="user_id" />
+            <result property="activityId" column="activity_id" />
+            <result property="reportDescription" column="report_description" />
+            <result property="reportTime" column="report_time" />
+            <result property="isProcessed" column="is_processed" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,activity_id,report_description,report_time,is_processed
+    </sql>
+</mapper>

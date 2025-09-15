@@ -1,0 +1,78 @@
+/*导航栏*/
+.navbar-custom {
+    background-color: orange;
+    padding: 10px 20px;
+}
+/*导航栏链接*/
+.navbar-custom .nav-link {
+    color: white;
+}
+/*导航栏链接悬停*/
+.navbar-custom .nav-link:hover {
+    color: lightgrey;
+}
+
+
+/*校徽*/
+.logo {
+    height: 50px;
+    margin: 0 0;
+}
+/* 默认隐藏客服图片 */
+.service-img {
+    display: none;
+    width: 100px;
+    height: auto;
+    position: absolute;
+    z-index: 9999;
+}
+
+/* 当鼠标悬停在客服链接上时，显示紧随其后的图片 */
+#showimage:hover + .service-img {
+    display: block;
+    position: absolute; /* 可选：使图片不占用文档流空间 */
+    right: 0; /* 可选：调整图片位置 */
+}
+/* 页面背景 */
+body {
+    background-color: #e6f0f8;
+}
+
+/* 添加活动表单样式 */
+.form-container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.cancel-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    margin-top: 10px;
+}
+
+.cancel-btn:hover {
+    background-color: #5a6268;
+}
+
+.alert {
+    margin-top: 20px;
+}

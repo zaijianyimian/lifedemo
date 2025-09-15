@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录与注册</title>
+    <link th:href="@{/bootstrap-5.3.0-dist/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/fontawesome-free-6.7.2-web/css/all.min.css}" rel="stylesheet">
+    <link th:href="@{/css/login.css}" rel="stylesheet">
+    <link rel="icon" th:href="@{/favicon.svg}" type="image/svg+xml">
+</head>
+<body>
+<nav class="navbar navbar-custom navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img th:src="@{/images/img.png}" class="logo"></a>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/index}"><i class="fa-solid fa-house"></i>首页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/login}"><i class="fa-solid fa-sign-in-alt"></i> 登录</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/manage}"><i class="fa-solid fa-cogs"></i> 管理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="showimage"><i class="fa-solid fa-headset"></i>客服</a>
+                <img th:src="@{/images/customer-ser.jpg}" class="service-img" alt="客服图片" />
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- 登录与注册表单切换容器 -->
+<div class="form-container">
+    <!-- 登录表单 -->
+    <div id="login-form">
+        <h2 class="form-title">登录</h2>
+        <form id="loginForm" method="post">
+            <!-- 用户名输入框 -->
+            <div class="mb-3">
+                <label for="login-username" class="form-label">用户名</label>
+                <input type="text" class="form-control" id="login-username" name="username" placeholder="请输入用户名" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="login-password" class="form-label">密码</label>
+                <input type="password" class="form-control" id="login-password" name="password" placeholder="请输入密码" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-btn">登录</button>
+        </form>
+
+        <button class="toggle-btn" onclick="toggleForm()">没有账号? 注册</button>
+    </div>
+
+    <!-- 注册表单 -->
+    <div id="register-form" style="display: none;">
+        <h2 class="form-title">注册</h2>
+        <form id="registerForm" method="post" onsubmit="return validateCaptcha(event)">
+            <!-- 用户名输入框 -->
+            <div class="mb-3">
+                <label for="register-username" class="form-label">用户名</label>
+                <input type="text" class="form-control" id="register-username" name="username" placeholder="请输入用户名" required>
+            </div>
+
+            <!-- 密码输入框 -->
+            <div class="mb-3">
+                <label for="register-password" class="form-label">密码</label>
+                <input type="password" class="form-control" id="register-password" name="password" placeholder="请输入密码" required>
+            </div>
+
+            <!-- 验证码 -->
+            <div class="mb-3 captcha-box">
+                <input type="text" id="captcha-input" class="form-control" placeholder="请输入验证码" required>
+                <span id="captcha-text"></span>
+            </div>
+
+            <input type="hidden" name="captcha" id="captcha-hidden">
+            <button type="submit" class="btn btn-primary form-btn">注册</button>
+        </form>
+
+        <button class="toggle-btn" onclick="toggleForm()">已有账号? 登录</button>
+    </div>
+</div>
+
+<!-- 引入 Bootstrap JS 和 Popper.js -->
+<!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>-->
+<script th:src="@{/bootstrap-5.3.0-dist/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/jquery/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/js/login.js}"></script>
+
+</body>
+</html>

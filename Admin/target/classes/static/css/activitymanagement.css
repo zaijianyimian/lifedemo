@@ -1,0 +1,58 @@
+/* 设置导航栏背景色为橙色 */
+.navbar-custom {
+    background-color: orange;
+    padding: 10px 20px;
+}
+
+/* 导航栏链接颜色 */
+.navbar-custom .nav-link {
+    color: white;
+}
+
+/* 导航栏链接悬停时的颜色 */
+.navbar-custom .nav-link:hover {
+    color: lightgrey;
+}
+
+/* 设置按钮文本颜色 */
+.navbar-custom .btn-link {
+    color: white;
+    text-decoration: none;
+}
+
+/* 鼠标悬停时按钮的样式 */
+.navbar-custom .btn-link:hover {
+    color: lightgrey;
+}
+
+/* 美化按钮 */
+.navbar-custom .btn-link {
+    font-size: 16px;
+    padding: 8px 12px;
+}
+
+.refresh-btn {
+    border-radius: 20%;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    background-color: white;
+    color: white;
+    border: 1px;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.refresh-btn:hover {
+    background-color: #0056b3;
+}
+
+.fa-solid {
+    color: lightgrey;
+}
+.logo {
+    height: 50px;
+    margin: 0 0;
+}

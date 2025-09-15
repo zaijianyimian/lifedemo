@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>编辑活动</title>
+  <link th:href="@{/bootstrap-5.3.0-dist/css/bootstrap.min.css}" rel="stylesheet">
+  <link rel="icon" th:href="@{/favicon.svg}" type="image/svg+xml">
+</head>
+<body>
+<div class="container mt-5">
+  <h2>编辑活动</h2>
+  <input type="hidden" id="activity" name="id" th:value="${activityid}">
+  <!-- 活动编辑表单 -->
+  <form id="editActivityForm">
+    <input type="hidden" id="activityId" name="id">
+
+    <div class="mb-3">
+      <label for="activity_name" class="form-label">活动名称</label>
+      <input type="text" class="form-control" id="activity_name" name="activity_name" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="category_id" class="form-label">活动分类</label>
+      <select class="form-control" id="category_id" name="category_id" required>
+        <option value="1">学习</option>
+        <option value="2">运动</option>
+        <option value="3">音乐</option>
+        <option value="4">旅行</option>
+        <option value="5">美食</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="activity_description" class="form-label">活动描述</label>
+      <textarea class="form-control" id="activity_description" name="activity_description" rows="4" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">更新活动</button>
+  </form>
+</div>
+
+<script th:src="@{/jquery/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/bootstrap-5.3.0-dist/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/editactivity.js}">
+
+</script>
+</body>
+</html>

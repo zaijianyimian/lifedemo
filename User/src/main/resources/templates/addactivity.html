@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加活动</title>
+    <link th:href="@{/bootstrap-5.3.0-dist/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/fontawesome-free-6.7.2-web/css/all.min.css}" rel="stylesheet">
+    <link th:href="@{/css/addactivity.css}" rel="stylesheet">
+    <link rel="icon" th:href="@{/favicon.svg}" type="image/svg+xml">
+</head>
+<body>
+<nav class="navbar navbar-custom navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img th:src="@{/images/img.png}" class="logo"></a>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/index}"><i class="fa-solid fa-house"></i>首页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/login}"><i class="fa fa-sign-in-alt"></i> 登录</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/manage}"><i class="fa fa-cogs"></i> 管理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="showimage"><i class="fa fa-headset"></i>客服</a>
+                <img th:src="@{/images/customer-ser.jpg}" class="service-img" alt="客服图片" />
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="form-container">
+    <h2 class="form-title">添加活动</h2>
+    <form id="addActivityForm">
+        <!-- 活动名称输入框 -->
+        <div class="mb-3">
+            <label for="activity_name" class="form-label">活动名称</label>
+            <input type="text" class="form-control" id="activity_name" name="activity_name" placeholder="请输入活动名称" required>
+        </div>
+        <div class="mb-3">
+            <label for="category_id" class="form-label">活动分类</label>
+            <select class="form-control" id="category_id" name="category_id" required>
+                <option value="1">学习</option>
+                <option value="2">运动</option>
+                <option value="3">音乐</option>
+                <option value="4">旅游</option>
+                <option value="5">美食</option>
+            </select>
+        </div>
+
+        <!-- 活动描述输入框 -->
+        <div class="mb-3">
+            <label for="activity_description" class="form-label">活动描述</label>
+            <textarea class="form-control" id="activity_description" name="activity_description" rows="4" placeholder="请输入活动描述" required></textarea>
+        </div>
+
+        <!-- 提交按钮 -->
+        <button type="submit" class="btn btn-primary form-btn">添加活动</button>
+    </form>
+
+    <!-- 取消按钮 -->
+    <button class="cancel-btn" onclick="window.location.href='/index'">取消</button>
+
+    <!-- 提示信息 -->
+    <div id="alertMessage" class="alert d-none" role="alert"></div>
+</div>
+
+<script th:src="@{/bootstrap-5.3.0-dist/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/jquery/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/js/addactivity.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/welife?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: 126824
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      url: jdbc:mysql://localhost:3306/welife?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+      username: root
+      password: 126824
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      initialSize: 500
+      maxActive: 10000
+      minIdle: 5
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      testWhileIdle: true
+      testOnBorrow: true
+      validationQuery: SELECT 1
+      validationQueryTimeout: 30000
+      removeAbandoned: true
+      removeAbandonedTimeout: 1800
+      logAbandoned: true
+  data:
+    redis:
+      host: 123.56.138.127:6379
+      database: 0
+      timeout: 10000
+      lettuce:
+        pool:
+          max-active: 10000
+          max-idle: 500
+          min-idle: 500
+          max-wait: 10000
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.welife.domain
+server:
+  port: 8000

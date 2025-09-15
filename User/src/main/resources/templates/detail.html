@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活动详情</title>
+    <link th:href="@{/bootstrap-5.3.0-dist/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/fontawesome-free-6.7.2-web/css/all.min.css}" rel="stylesheet">
+    <link th:href="@{/css/detail.css}" rel="stylesheet">
+    <link rel="icon" th:href="@{/favicon.svg}" type="image/svg+xml">
+</head>
+<body>
+<nav class="navbar navbar-custom navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img th:src="@{/images/img.png}" class="logo"></a>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/index}"><i class="fa-solid fa-house"></i>首页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{login}"><i class="fa-solid fa-sign-in-alt"></i> 登录</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/manage}"><i class="fa-solid fa-cogs"></i> 管理</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" id="showimage"><i class="fa-solid fa-headset"></i>客服</a>
+                <img th:src="@{/images/customer-ser.jpg}" class="service-img" alt="客服图片" />
+            </li>
+        </ul>
+    </div>
+</nav>
+<input type="hidden" id="activity-id" th:value="${activityid}">
+<div class="container mt-5">
+    <div class="activity-details position-relative">
+        <h2 id="activity-name">活动名称</h2>
+        <p id="activity-description">活动描述</p>
+        <p><strong>发布时间：</strong><span id="activity-date">活动时间</span></p>
+        <p><strong>活动类别：</strong><span id="activity-category">活动类别</span></p>
+        <button class="btn btn-primary" id="join-button" onclick="toggleJoinActivity()">加入活动</button>
+        <button class="btn btn-info share-btn" onclick="shareActivity()">
+            <i class="fa-solid fa-share"></i> 分享
+        </button>
+        <button class="btn report-btn" id="report-button" onclick="openReportModal()">
+            <i class="fa-solid fa-flag"></i> 举报活动
+        </button>
+        <hr>
+        <h4>评论内容</h4>
+
+        <!-- 评论区域 -->
+        <div class="comment-section" id="comment-section">
+            <!-- 评论列表将动态加载在这里 -->
+        </div>
+    </div>
+</div>
+
+<!-- 添加评论按钮 -->
+<button class="add-comment-btn" onclick="openCommentModal()">
+    <i class="fa fa-plus"></i>
+</button>
+
+<!-- 评论弹窗 -->
+<div class="modal" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="commentModalLabel">发表评论</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <textarea class="form-control" id="comment-content" rows="4" placeholder="请输入评论内容..."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="submitComment()">提交评论</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--举报弹窗-->
+<!-- 举报弹窗 -->
+<div class="modal" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reportModalLabel">举报活动</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <textarea class="form-control" id="report-description" rows="4" placeholder="请输入举报内容..."></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-danger" onclick="submitReport()">提交举报</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/jquery/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/bootstrap-5.3.0-dist/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/detail.js}"></script>
+
+</body>
+</html>
+
+
+</body>
+</html>

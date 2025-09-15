@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.user.mapper.ActivitiesMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.user.domain.Activities">
+            <id property="id" column="id" />
+            <result property="activityName" column="activity_name" />
+            <result property="categoryId" column="category_id" />
+            <result property="activityDescription" column="activity_description" />
+            <result property="activityDate" column="activity_date" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,activity_name,category_id,activity_description,activity_date
+    </sql>
+</mapper>
