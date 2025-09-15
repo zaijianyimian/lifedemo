@@ -5,10 +5,7 @@ import com.example.admin.service.ReportsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,13 +16,13 @@ public class ReportController {
     @Resource
     private ReportsService reportService;
 
-    @GetMapping("/getallreports")
+    @GetMapping("/report")
     @Operation(summary = "获取举报信息列表", description = "获取举报信息列表")
     public List<Reports> getReportList() {
         return reportService.list();
     }
 
-    @GetMapping("/deletereport")
+    @DeleteMapping("/report/{reportId}")
     @Operation(summary = "删除举报信息", description = "删除举报信息")
     public String deleteReport(@RequestParam("reportId") Integer id) {
         if (id == null) {

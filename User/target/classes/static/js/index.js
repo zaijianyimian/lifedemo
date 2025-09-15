@@ -54,7 +54,7 @@ function startAutoSlide(totalActivities) {
 // 加载首页的所有活动
 function loadHomeActivities() {
     $.ajax({
-        url: '/api/activity/getactivitybycatid?category_id=0',
+        url: '/api/activity/getactivitybycatid/0',
         method: 'GET',
         datatype: 'json',
         success: function(response) {
@@ -85,7 +85,7 @@ function loadCategoryActivities(categoryId) {
     if (categoryId < 1 || categoryId > 5) return;
 
     $.ajax({
-        url: `/api/activity/getactivitybycatid?category_id=${categoryId}`,
+        url: `/api/activity/getactivitybycatid/${categoryId}`,
         method: 'GET',
         datatype: 'json',
         success: function(response) {
@@ -239,9 +239,8 @@ function removeInterest(categoryId) {
     console.log(categoryId);
     if (confirm('确定不再推荐此类活动吗？')) {
         $.ajax({
-            url: '/api/prefer/deleteprefers',
-            method: 'POST',
-            data: { category_id: categoryId },
+            url: '/api/prefer/prefers/'+categoryId,
+            method: 'DELETE',
             dataType: 'json',
             success: function(response) {
                 if (response.status === 'success') {

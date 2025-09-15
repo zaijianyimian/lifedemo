@@ -51,9 +51,9 @@ public class CommentController {
     }
 
 
-    @PostMapping("/deletecomment")
+    @DeleteMapping("/comment/{commentId}")
     @Operation(summary = "删除评论",description = "删除评论接口")
-    public String deleteComment(@RequestParam("commentId") Integer commentid){
+    public String deleteComment(@PathVariable("commentId") Integer commentid){
 
         try{
             boolean delete = commentService.removeById(commentid);
@@ -66,9 +66,9 @@ public class CommentController {
             return "{\"status\": \"failure\", \"message\": \"系统异常！\"}";
         }
     }
-    @GetMapping("/getcomments")
+    @GetMapping("/comment/{activity_id}")
     @Operation(summary = "获取评论列表",description = "获取评论列表接口")
-    public List<Comments> getComments(@RequestParam("activity_id") Integer activityid){
+    public List<Comments> getComments(@PathVariable("activity_id") Integer activityid){
         try {
             QueryWrapper<Comments> queryWrapper = new QueryWrapper<>();
             queryWrapper.eq("activity_id",activityid);

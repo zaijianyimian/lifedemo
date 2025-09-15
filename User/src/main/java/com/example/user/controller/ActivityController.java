@@ -39,7 +39,7 @@ public class ActivityController {
     @Resource
     private PreferService preferService;
 
-    @PostMapping("/addactivity")
+    @PostMapping("/activity")//原先为@PostMapping("/addactivity")
     @Transactional
     @Operation(summary = "添加活动", description = "添加活动接口")
     public String addActivity(@RequestParam("activity_name") String activityName,
@@ -102,9 +102,9 @@ public class ActivityController {
         }
     }
 
-    @GetMapping("/getactivitybycatid")
+    @GetMapping("/getactivitybycatid/{category_id}")
     @Operation(summary = "根据分类id获取活动", description = "根据分类id获取活动接口")
-    public List<Activities> getActivityByCatId(@RequestParam("category_id") int categoryId) {
+    public List<Activities> getActivityByCatId(@PathVariable("category_id") int categoryId) {
         if(categoryId < 0||categoryId > 5){
             return Collections.emptyList();
         }
@@ -149,9 +149,9 @@ public class ActivityController {
 
     }
 
-    @GetMapping("/getActivityById")
+    @GetMapping("/activity/{id}")
     @Operation(summary = "根据活动id获取活动", description = "根据活动id获取活动接口")
-    public Activities getActivityById(@RequestParam("id") int activityId) {
+    public Activities getActivityById(@PathVariable("id") int activityId) {
         try {
             Activities activities = activitiesService.getById(activityId);
             return activities;
@@ -161,9 +161,9 @@ public class ActivityController {
         }
     }
 
-    @GetMapping("/deleteactivity")
+    @DeleteMapping("/activity/{id}")
     @Operation(summary = "删除活动", description = "删除活动接口")
-    public String deleteActivity(@RequestParam("id") int activityId) {
+    public String deleteActivity(@PathVariable("id") int activityId) {
         try {
             boolean b = activitiesService.removeById(activityId);
             if(b){
@@ -203,7 +203,7 @@ public class ActivityController {
             return Collections.emptyList();
         }
     }
-    @PostMapping("/updateactivity")
+    @PutMapping("/activity")
     @Operation(summary = "更新活动", description = "更新活动接口")
     public String updateActivity(@RequestParam("id") int activityId,
                                 @RequestParam("activity_name") String activityName,

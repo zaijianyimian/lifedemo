@@ -6,10 +6,7 @@ import com.example.admin.service.ActivitiesService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,17 +26,17 @@ public class ActivityController {
         return activitiesService.list(wrapper);
     }
 
-    @GetMapping("/searchactivity")
+    @GetMapping("/activity/{id}")
     @Operation(summary = "通过id搜索活动", description = "搜索活动")
-    public Activities searchActivity(@RequestParam(value = "id") Integer id) {
+    public Activities searchActivity(@PathVariable(value = "id") Integer id) {
         if (id == null) {
             return null;
         }
         return activitiesService.getById(id);
     }
-    @GetMapping("/deleteactivity")
+    @DeleteMapping("/activity/{id}")
     @Operation(summary = "通过id删除活动", description = "删除活动")
-    public String deleteActivity(@RequestParam(value = "id") Integer id) {
+    public String deleteActivity(@PathVariable(value = "id") Integer id) {
         if (id == null) {
             return "{\"status\":\"failure\"}";
         }

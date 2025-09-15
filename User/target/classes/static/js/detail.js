@@ -15,7 +15,7 @@ $(document).ready(function() {// 获取活动 ID
 // 加载活动详情的函数
 function loadActivityDetails(activityId) {
     $.ajax({
-        url: `/api/activity/getActivityById?id=${activityId}`,
+        url: `/api/activity/activity/${activityId}`,
         method: 'GET',
         dataType: 'json',
         success: function(response) {
@@ -98,11 +98,8 @@ function toggleJoinActivity() {
         });
     } else {
         $.ajax({
-            url: '/api/join/deletejoin',
-            method: 'POST',
-            data: {
-                activityid: activityId
-            },
+            url: '/api/join/join/'+activityId,
+            method: 'DELETE',
             dataType: 'json',
             success: function(response) {
                 if (response.status === 'success') {
@@ -144,8 +141,6 @@ function submitComment() {
         return;
     }
 
-    var activityId = getActivityIdFromURL();
-
     $.ajax({
         url: '/api/comment/addcomment',
         method: 'POST',
@@ -163,16 +158,13 @@ function submitComment() {
                 alert('评论失败,请检查是否登录');
             }
         },
-        // error: function() {
-        //     alert('请求失败，请稍后重试');
-        // }
     });
 }
 
 // 加载评论
 function loadComments(activityId) {
     $.ajax({
-        url: `/api/comment/getcomments?activity_id=${activityId}`,
+        url: `/api/comment/comment/${activityId}`,
         method: 'GET',
         dataType: 'json',
         success: function(response) {
@@ -224,14 +216,9 @@ function loadComments(activityId) {
 }
 
 function deleteComment(commentId) {
-    var activityId = getActivityIdFromURL();
     $.ajax({
-        url: `/api/comment/deletecomment`,
-        method: 'POST',
-        data: {
-            commentId: commentId,
-            activityId: activityId
-        },
+        url: `/api/comment/comment/${commentId}`,
+        method: 'DELETE',
         dataType: 'json',
         success: function(response) {
             if (response.status === 'success') {

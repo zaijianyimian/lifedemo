@@ -6,7 +6,7 @@ let activityId = document.getElementById("activity").value;
 window.onload = function () {
     if (activityId) {
         $.ajax({
-            url: `/api/activity/getActivityById?id=${activityId}`,
+            url: `/api/activity/activity/${activityId}`,
             method: 'GET',
             dataType: 'json',
             success: function(data) {
@@ -30,8 +30,8 @@ $("#editActivityForm").submit(function(event) {
 
     // 使用AJAX提交表单数据
     $.ajax({
-        url: '/api/activity/updateactivity',
-        method: 'POST',
+        url: '/api/activity/activity',
+        method: 'PUT',
         data: $(this).serialize(), // 序列化表单数据
         dataType: 'json',
         success: function(data) {

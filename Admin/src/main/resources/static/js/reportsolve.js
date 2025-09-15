@@ -1,7 +1,7 @@
 // 获取所有举报信息并展示在表格中
 function loadReports() {
     $.ajax({
-        url: '/api/report/getallreports',
+        url: '/api/report/report',
         method: 'GET',
         dataType: 'json',
         success: function(response) {
@@ -29,8 +29,8 @@ function loadReports() {
 // 处理举报
 function processReport(reportId) {
     $.ajax({
-        url: '/api/report/deletereport',
-        method: 'GET',
+        url: '/api/report/report',
+        method: 'DELETE',
         data: { reportId: reportId },
         dataType: 'json',
         success: function(response) {

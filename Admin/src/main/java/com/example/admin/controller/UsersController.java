@@ -21,9 +21,9 @@ public class UsersController {
         return userService.list();
     }
 
-    @GetMapping("/searchuser")
+    @GetMapping("/user/{name}")
     @Operation(summary = "搜索用户", description = "根据用户名搜索用户信息")
-    public Users searchUser(@RequestParam(value = "name") String username) {
+    public Users searchUser(@PathVariable(value = "name") String username) {
         if (username == null || username.trim().length() == 0) {
             return null;
         }
@@ -32,7 +32,7 @@ public class UsersController {
         return userService.getOne(queryWrapper);
     }
 
-    @PostMapping("/updateuser")
+    @PutMapping("/user")
     @Operation(summary = "更新用户", description = "更新用户信息")
     public String updateUser(@RequestBody Users user) {
         boolean save = userService.updateById(user);
@@ -44,9 +44,9 @@ public class UsersController {
         }
     }
 
-    @GetMapping("/deleteuser")
+    @DeleteMapping("/user/{id}")
     @Operation(summary = "删除用户", description = "根据用户ID删除用户信息")
-    public String deleteUser(@RequestParam(value = "id") Integer id) {
+    public String deleteUser(@PathVariable(value = "id") Integer id) {
         boolean remove = userService.removeById(id);
         if (remove) {
             return "{\"status\":\"success\"}";

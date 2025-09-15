@@ -11,7 +11,7 @@ $('#addActivityForm').submit(function (event) {
 
     // 发送 Ajax 请求
     $.ajax({
-        url: '/api/activity/addactivity',  // 后端处理 URL
+        url: '/api/activity/activity',  // 后端处理 URL
         method: 'POST',  // 请求方式
         data: formData,
         dataType: 'json',  // 请求数据

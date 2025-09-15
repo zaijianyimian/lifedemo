@@ -56,7 +56,7 @@ function searchUsers() {
     }
 
     $.ajax({
-        url: '/api/user/searchuser?name=' + searchText,
+        url: '/api/user/user/' + searchText,
         method: 'GET',
         dataType: 'json',
         success: function(response) {
@@ -92,7 +92,7 @@ function searchUsers() {
         },
         error: function(error) {
             console.error('请求失败', error);
-            alert('查询失败！');
+            alert('没有找到符合条件的用户！');
         }
     });
 }
@@ -111,8 +111,8 @@ function updateUser() {
     var password = document.getElementById("editUserPassword").value;
 
     $.ajax({
-        url: '/api/user/updateuser',
-        method: 'POST',
+        url: '/api/user/user',
+        method: 'PUT',
         data: JSON.stringify({ id: id, name: name, password: password }),
         contentType: 'application/json;charset=UTF-8',
         dataType: 'json',
@@ -145,8 +145,8 @@ function openDeleteUserModal(id) {
 
 function deleteUser(id) {
     $.ajax({
-        url: '/api/user/deleteuser?id=' + id,
-        method: 'GET',
+        url: '/api/user/user/' + id,
+        method: 'DELETE',
         dataType: 'json',
         success: function(response) {
             if(response.status === 'success') {

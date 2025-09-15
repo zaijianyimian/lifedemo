@@ -9,10 +9,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 用户偏好管理
@@ -25,9 +22,9 @@ public class PreFerController {
     @Resource
     private PreferService preferService;
 
-    @PostMapping("/deleteprefers")
+    @DeleteMapping("/prefers/{category_id}")
     @Operation(summary="删除用户偏好",description="删除用户偏好")
-    public String deletePrefers(@RequestParam("category_id") Integer categoryId, HttpSession session) {
+    public String deletePrefers(@PathVariable("category_id") Integer categoryId, HttpSession session) {
         Users user = (Users) session.getAttribute("user");
         if (user == null) {
             return "{\"status\": \"failure\", \"message\": \"请先登录\"}";
@@ -49,9 +46,9 @@ public class PreFerController {
             return "{\"status\": \"error\", \"message\": \"服务器错误: " + e.getMessage() + "\"}";
         }
     }
-    @PostMapping("/addprefers")
+    @PostMapping("/prefers/{category_id}")
     @Operation(summary="添加用户偏好",description="添加用户偏好")
-    public String addPrefers(@RequestParam("category_id") Integer categoryId, @RequestParam("content") String content, HttpSession session) {
+    public String addPrefers(@PathVariable("category_id") Integer categoryId, @RequestParam("content") String content, HttpSession session) {
         Users user = (Users) session.getAttribute("user");
         if (user == null) {
             return "{\"status\": \"failure\", \"message\": \"请先登录\"}";

@@ -76,7 +76,7 @@ function searchActivity() {
     }
 
     $.ajax({
-        url: '/api/activity/searchactivity?id=' + searchText,
+        url: '/api/activity/activity/' + searchText,
         method: 'GET',
         dataType: 'json',
         success: function(response) {
@@ -134,8 +134,8 @@ function deleteActivity() {
     let activityId = window.selectedActivityId;
 
     $.ajax({
-        url: '/api/activity/deleteactivity?id=' + activityId,
-        method: 'GET',
+        url: '/api/activity/activity/' + activityId,
+        method: 'DELETE',
         dataType: 'json',
         success: function(response) {
             if(response.status === 'success') {

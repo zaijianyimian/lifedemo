@@ -122,7 +122,7 @@ public class UserController {
         return user;
     }
 
-    @PostMapping("/updateuser")
+    @PutMapping("/user")
     @Operation(summary = "更新用户信息",description = "更新用户信息")
     public String updateUser(@RequestBody Users user,HttpSession session) {
         if (user == null) {

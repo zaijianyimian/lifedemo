@@ -117,8 +117,8 @@ window.onload = function() {
         var id = $('#userId').val();
 
         $.ajax({
-            url: '/api/user/updateuser',  // 后端更新用户密码的接口
-            method: 'POST',
+            url: '/api/user/user',  // 后端更新用户密码的接口
+            method: 'PUT',
             contentType: 'application/json',
             data: JSON.stringify({
                 id: id,
@@ -145,12 +145,8 @@ function leaveActivity(activityId) {
     var userId = $('#userId').val();
 
     $.ajax({
-        url: '/api/join/deletejoin',  // 后端删除用户与活动关联的接口
-        method: 'POST',
-        data: {
-            userid: userId,
-            activityid: activityId
-        },
+        url: '/api/join/join/'+ activityId ,  // 后端删除用户与活动关联的接口
+        method: 'DELETE',
         dataType: 'json',
         success: function(response) {
             if (response.status === 'success') {
@@ -176,11 +172,8 @@ function editActivity(activityId) {
 function deleteActivity(activityId) {
 
     $.ajax({
-        url: '/api/activity/deleteactivity',  // 后端删除活动的接口
-        method: 'GET',
-        data: {
-            id: activityId
-        },
+        url: '/api/activity/activity/'+ activityId,  // 后端删除活动的接口
+        method: 'DELETE',
         dataType: 'json',
         success: function(response) {
             if (response.status === 'success') {

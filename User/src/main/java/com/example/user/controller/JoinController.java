@@ -59,9 +59,9 @@ public class JoinController {
             return "{\"status\":\"success\", \"message\":\"加入活动失败\"}";
         }
     }
-    @PostMapping("/deletejoin")
+    @DeleteMapping("/join/{activityid}")
     @Operation(summary = "删除用户加入活动信息",description = "删除用户加入活动信息的接口")
-    public String deleteJoin(@RequestParam("activityid") Integer activityid,
+    public String deleteJoin(@PathVariable("activityid") Integer activityid,
                              HttpSession session) {
         Users user = (Users) session.getAttribute("user");
         if (user == null) {
