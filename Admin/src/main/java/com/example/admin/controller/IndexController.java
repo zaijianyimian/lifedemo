@@ -3,6 +3,9 @@ package com.example.admin.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+/**
+ * 页面管理
+ */
 @Controller
 public class IndexController {
     @GetMapping({"/", "/index", "/home"})

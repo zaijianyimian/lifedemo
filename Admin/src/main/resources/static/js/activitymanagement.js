@@ -1,7 +1,7 @@
 window.onload = function() {
     loadActivityTable();
 };
-
+// 定义类别映射对象，将数字类别ID转换为对应的中文类别名称
 var categoryMap = {
     1: "学习",
     2: "运动",
@@ -16,32 +16,34 @@ function loadActivityTable() {
         method: 'GET',
         dataType: 'json',
         success: function(response) {
-            var tableBody = document.getElementById("activityTableBody");
+            var tableBody = document.getElementById("activityTableBody");// 获取表格主体元素
             tableBody.innerHTML = "";  // 清空现有的表格内容
             var activities = response;  // 使用 response.activities 访问活动数组
 
             // 遍历活动数组，填充表格
             activities.forEach(function(activity) {
-                var row = document.createElement("tr");
+                var row = document.createElement("tr"); // 创建表格行元素
+
 
                 // 活动ID列
-                var cellId = document.createElement("td");
-                cellId.textContent = activity.id;
-                row.appendChild(cellId);
+                var cellId = document.createElement("td"); // 创建单元格元素
+                cellId.textContent = activity.id; // 设置单元格内容为活动ID
+                row.appendChild(cellId);// 将单元格添加到行中
+
 
                 // 活动名称列
                 var cellName = document.createElement("td");
-                cellName.textContent = activity.activityName;
+                cellName.textContent = activity.activityName; // 设置单元格内容为活动名称
                 row.appendChild(cellName);
 
                 // 类别列：使用映射显示类别名称
                 var cellCategory = document.createElement("td");
-                cellCategory.textContent = categoryMap[activity.categoryId] || "未知类别";
+                cellCategory.textContent = categoryMap[activity.categoryId] || "未知类别";// 若类别ID不存在则显示"未知类别"
                 row.appendChild(cellCategory);
 
                 // 活动描述列
                 var cellDescription = document.createElement("td");
-                cellDescription.textContent = activity.activityDescription;
+                cellDescription.textContent = activity.activityDescription;// 设置单元格内容为活动描述
                 row.appendChild(cellDescription);
 
                 // 活动日期列
@@ -61,7 +63,8 @@ function loadActivityTable() {
         },
         error: function(error) {
             alert("加载活动数据失败！");
-            console.error(error);
+            console.error(error);// 在控制台打印错误信息
+
         }
     });
 }

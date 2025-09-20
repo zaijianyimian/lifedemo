@@ -29,7 +29,7 @@ function loadReports() {
 // 处理举报
 function processReport(reportId) {
     $.ajax({
-        url: '/api/report/report',
+        url: '/api/report/report/'+reportId,
         method: 'DELETE',
         data: { reportId: reportId },
         dataType: 'json',

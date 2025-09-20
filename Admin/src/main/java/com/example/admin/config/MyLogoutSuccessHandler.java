@@ -8,6 +8,9 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+/**
+ *管理员登出成功处理
+ */
 
 @Component
 public class MyLogoutSuccessHandler implements LogoutSuccessHandler {

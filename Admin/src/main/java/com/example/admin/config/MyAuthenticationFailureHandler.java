@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
+/**
+ *管理员登录失败处理
+ */
 
 @Component
 public class MyAuthenticationFailureHandler implements AuthenticationFailureHandler {

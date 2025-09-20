@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * 活动管理类
+ */
 @RestController
 @Tag(name = "活动相关类", description = "提供活动相关的接口")
 @RequestMapping("/api/activity")

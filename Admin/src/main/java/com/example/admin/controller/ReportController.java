@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * 举报信息管理，采用了restful风格的接口
+ */
 @RestController
 @Tag(name = "举报信息管理",description = "管理举报信息")
 @RequestMapping("/api/report")

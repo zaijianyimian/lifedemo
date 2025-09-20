@@ -13,6 +13,9 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
+/**
+ * spring security 配置
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -21,7 +24,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/login", "/css/**", "/js/**", "/favicon.ico").permitAll() // 必须放行静态资源！
+                        .requestMatchers("/login", "/css/**", "/js/**", "/favicon.svg").permitAll() // 必须放行静态资源！
                         .anyRequest()
                         .authenticated()
                 )

@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * 管理员类，仅在测试时使用，生产环境中应使用OAuth2或JWT等安全机制
+ */
 @RestController
 @RequestMapping("/admin1")
 @Slf4j

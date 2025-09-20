@@ -2,12 +2,12 @@ spring:
   application:
     name: admin-service
   datasource:
-    url: jdbc:mysql://localhost:3306/welife?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:mysql://123.56.138.127:3306/welife?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
     password: 126824
     driver-class-name: com.mysql.cj.jdbc.Driver
     druid:
-      url: jdbc:mysql://localhost:3306/welife?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+      url: jdbc:mysql://123.56.138.127:3306/welife?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
       username: root
       password: 126824
       driver-class-name: com.mysql.cj.jdbc.Driver

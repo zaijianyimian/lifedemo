@@ -7,6 +7,9 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
+/**
+ *用户信息管理，包括增删改查等操作，restful接口
+ */
 
 @RestController
 @Tag(name = "用户管理", description = "用户管理相关接口")
